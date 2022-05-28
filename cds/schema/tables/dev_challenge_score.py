@@ -7,6 +7,8 @@ from cds.schema.models import DevChallengeScoreRead
 
 
 class DevChallengeScore(DevChallengeScoreRead, table=True):
+    __tablename__: str = 'developer_mcq_score'
+
     dev_id: Optional[int] = Field(default=None, primary_key=True, foreign_key='developer.id')
     challenge_id: Optional[int] = Field(default=None, primary_key=True, foreign_key='challenge.id')
     rank_percentile: float

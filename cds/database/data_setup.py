@@ -2,7 +2,7 @@ from sqlmodel import SQLModel, Session
 
 from .config import engine
 
-from models import Developer, Challenge, DevChallengeScore
+from cds.schema.tables import Developer, Challenge, DevChallengeScore
 
 def create_db_and_tables():
     SQLModel.metadata.create_all(engine)
