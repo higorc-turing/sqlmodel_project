@@ -2,7 +2,7 @@ from typing import TYPE_CHECKING, Optional
 from sqlmodel import SQLModel, Relationship, Field
 
 if TYPE_CHECKING:
-    from models.tables import DevChallengeScore
+    from cds.schema.tables import DevChallengeScore
 
 
 class Developer(SQLModel, table=True):
