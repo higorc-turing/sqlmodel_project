@@ -9,5 +9,5 @@ engine = create_engine(
     connect_args={'check_same_thread': False}
 )
 
-def get_session():
+def session_maker():
     return Session(engine)
