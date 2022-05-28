@@ -10,9 +10,9 @@ class DevChallengeScoreRead(SQLModel):
     updated_date: datetime
 
 class ChallengeScoreRead(DevChallengeScoreRead):
-    """This data model will include developer ID in a list of scores."""
+    """This MCQ score reading includes developer IDs."""
     dev_id: int
 
 class DeveloperScoreRead(DevChallengeScoreRead):
-    """This data model will include challenge ID in a list of scores."""
+    """This MCQ score reading includes challenge IDs."""
     challenge_id: int
