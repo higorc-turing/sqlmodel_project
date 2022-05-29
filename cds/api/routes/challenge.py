@@ -1,9 +1,10 @@
+from typing import Optional
 from fastapi import APIRouter, Depends
 
 from sqlmodel import Session, select
 
 from cds.schema.tables import Challenge, DevChallengeScore
-from cds.schema.models import ChallengeScoreRead, DevChallengeScoreRead
+from cds.schema.models import ChallengeRead, ChallengeScoreRead, DevChallengeScoreRead
 from cds.database import session_maker
 
 from cds.api.routes.developer import get_one_dev_score
@@ -18,12 +19,12 @@ def get_challenges(session: Session = Depends(session_maker)):
         results = session.exec(stmt).all()
         return results
 
-@challenge_route.get('/{challenge_id}', response_model=Challenge)
-def get_challenge(challenge_id: int, session: Session = Depends(session_maker)):
+@challenge_route.get('/{challenge_id}', response_model=ChallengeRead)
+def get_challenge(challenge_id: int, session: Session = Depends(session_maker)) -> Optional[ChallengeRead]:
     with session:
         stmt = select(Challenge).where(Challenge.id == challenge_id)
         result = session.exec(stmt).first()
-        return result
+        return ChallengeRead.from_orm(result)
 
 @challenge_route.get('/{challenge_id}/developer/', response_model=list[ChallengeScoreRead])
 def get_all_challenge_scores(challenge_id: int, session: Session = Depends(session_maker)):
