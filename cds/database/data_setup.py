@@ -1,6 +1,6 @@
 from sqlmodel import SQLModel, Session
 
-from .config import engine
+from .config import engine, session_maker
 
 from cds.schema.tables import Developer, Challenge, DevChallengeScore
 
@@ -8,7 +8,7 @@ def create_db_and_tables():
     SQLModel.metadata.create_all(engine)
 
 def create_data():
-    with Session(engine) as session:
+    with session_maker() as session:
         higor = Developer(name="Higor", country="Brazil")
         rehman = Developer(name="Rehman", country="Pakistan")
         ivan = Developer(name="Ivan", country="Anywhere but Russia")
