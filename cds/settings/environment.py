@@ -2,7 +2,7 @@ from pydantic import BaseSettings, SecretStr
 
 
 class EnvironmentVariables(BaseSettings):
-    CDS_MYSQL_SERVER: str
+    CDS_MYSQL_ADDRESS: str
     CDS_MYSQL_USER: str
     CDS_MYSQL_DATABASE: str
     CDS_MYSQL_PASSWORD: SecretStr
