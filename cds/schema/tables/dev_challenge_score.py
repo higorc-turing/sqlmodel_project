@@ -1,6 +1,6 @@
 from typing import Optional
 from datetime import datetime
-from sqlmodel import SQLModel, Relationship, Field
+from sqlmodel import Relationship, Field
 
 from cds.schema.tables import Developer, Challenge
 from cds.schema.models import DevChallengeScoreRead
