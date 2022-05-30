@@ -13,7 +13,7 @@ config = context.config
 # This line sets up loggers basically.
 fileConfig(fname=config.config_file_name)  # type: ignore
 
-# Enable 'autogeneration' of revision
+# Enable revision autogeneration
 from sqlmodel import SQLModel
 from cds.schema.tables import Developer, Challenge, DevChallengeScore
 
