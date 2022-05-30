@@ -57,7 +57,7 @@ requirements.txt -> to be installed with pip install -r requirements.txt (we can
 (and maybe some .env files if you like)
 ```
 
-> Note that, though the `alembic` and `cds` modules are separated for having different functions altogether, `alembic` makes use of the [**SQL metadata**](https://sqlmodel.tiangolo.com/tutorial/create-db-and-table/#sqlmodel-metadata) generated in the CDS to run revision generations by comparing it against the current state of the database. This is why they have to be maintained in the same repository.
+> Note that, although the `alembic` and `cds` modules are separated for having different functions altogether, `alembic` makes use of the [**SQL metadata**](https://sqlmodel.tiangolo.com/tutorial/create-db-and-table/#sqlmodel-metadata) generated in the CDS to run revision generations by comparing it against the current state of the database. This is why they have to be maintained in the same repository.
 
 ## Setting up
 First, `pip install -r requirements.txt`. Note that SQLAlchemy library introduced some breaking change to SQLModel in version 1.46.0, so we're using 1.45.0.
