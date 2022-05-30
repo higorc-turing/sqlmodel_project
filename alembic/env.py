@@ -5,8 +5,6 @@ from sqlalchemy import pool
 
 from alembic import context
 
-from cds.database.config import DATABASE_URL
-
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
 config = context.config
@@ -15,10 +13,7 @@ config = context.config
 # This line sets up loggers basically.
 fileConfig(fname=config.config_file_name)  # type: ignore
 
-# add your model's MetaData object here
-# for 'autogenerate' support
-# from myapp import mymodel
-# target_metadata = mymodel.Base.metadata
+# Enable 'autogeneration' of revision
 from sqlmodel import SQLModel
 from cds.schema.tables import Developer, Challenge, DevChallengeScore
 
@@ -29,6 +24,9 @@ target_metadata = SQLModel.metadata
 # my_important_option = config.get_main_option("my_important_option")
 # ... etc.
 
+# This replaces the placeholder in the .ini file with the
+# correct URL set with environment variables
+from cds.database.config import DATABASE_URL
 config.set_main_option("sqlalchemy.url", DATABASE_URL)
 
 def run_migrations_offline():
