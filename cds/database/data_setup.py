@@ -1,4 +1,4 @@
-from sqlmodel import SQLModel, Session
+from sqlmodel import SQLModel
 
 from .config import engine, session_maker
 

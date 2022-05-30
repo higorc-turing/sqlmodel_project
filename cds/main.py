@@ -9,14 +9,10 @@ app = FastAPI()
 
 @app.on_event('startup')
 def on_startup():
-    drop_all_tables()
-    create_db_and_tables()
-    create_data()
     pass
 
 @app.on_event('shutdown')
 def on_shutdown():
-    drop_all_tables()
     pass
 
 app.openapi = custom_openapi(app)
