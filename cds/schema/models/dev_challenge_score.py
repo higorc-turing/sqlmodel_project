@@ -5,9 +5,9 @@ from sqlmodel import SQLModel, Relationship, Field
 
 class DevChallengeScoreRead(SQLModel):
     """Base class for MCQ score reads."""
-    rank_percentile: float
-    passed: bool
-    updated_date: datetime
+    rank_percentile: float = Field(nullable=False)
+    passed: bool = Field(nullable=False)
+    updated_date: datetime = Field(default_factory=datetime.utcnow, nullable=False)
 
 class ChallengeScoreRead(DevChallengeScoreRead):
     """This MCQ score reading includes developer IDs."""
